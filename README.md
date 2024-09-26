@@ -472,9 +472,11 @@ python3 -m http.server 8123
 
 Caso esse comando seja executado de um diretório que não contenha o arquivo `index.html` então os arquivos do diretório são exibidos no navegador.
 
-Abra no navegador a URL: [http://0.0.0.0:8000/](http://0.0.0.0:8000/) ou [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+Abra no navegador a URL: [http://0.0.0.0:8000/](http://0.0.0.0:8000/) ou [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 Este é um servidor padrão que você pode usar para baixar arquivos da máquina.
+
+Experimente, acessar os diretórios do computador de um colega da turma. Para isso, abra no navegador a URL: [http://IP-DO-COLEGA:8000/](http://IP-DO-COLEGA:8000/). Obviamente o colega precisa executar o comando `python3 -m http.server` em seu computador.
 
 Crie agora um arquivo `index.html` no diretório em que está se executando o servidor HTTP do Python. Coloque nesse arquivo o seguinte conteúdo:
 
@@ -548,6 +550,8 @@ python3 basic-server.py
 Abra a URL no navegador [http://localhost:8080/](http://localhost:8080/).
 
 Se você abrir uma URL como [http://localhost:8080/exemplo](http://localhost:8080/exemplo) o método do_GET() será chamado. Enviamos a página da web manualmente neste método. A variável `self.path` retorna a URL solicitada do navegador. Neste caso seria `/exemplo`.
+
+Experimente, acessar o servidor web de um colega da turma. Para isso, abra no navegador a URL: [http://IP-DO-COLEGA:8080/](http://IP-DO-COLEGA:8080/). Obviamente o colega precisa executar o comando `python3 basic-server.py` em seu computador, mas antes ele deve alterar o HOST para `0.0.0.0`, devido a configurações do laboratório.
 
 Para mais informações consulte: [https://pythonbasics.org/webserver/](https://pythonbasics.org/webserver/).
 
