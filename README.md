@@ -566,3 +566,4 @@ Este tutorial utilizou parte dos seguintes materiais:
 * [Modelo OSI e Arquitetura TCP/IP](https://www.estrategiaconcursos.com.br/blog/modelo-osi-arquitetura-tcp-ip/)
 * [Medium - Métodos HTTP: Quais são e qual a funcionalidade deles](https://medium.com/@renejr03/m%C3%A9todos-http-quais-s%C3%A3o-e-qual-a-funcionalidade-deles-491b1cc5d5b4)
 * [Medium - Capítulo 2 : Fundamentos da Arquitetura Web](https://medium.com/@tanstorm/cap%C3%ADtulo-2-fundamentos-da-arquitetura-web-751b82532d6d)
+* [https://pythonbasics.org/webserver/](https://pythonbasics.org/webserver/)
