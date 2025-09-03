@@ -32,7 +32,7 @@
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-Aula de Arquitetura da Web. Esta aula será utilizada na disciplina GAC116 - Programação Web. O objetivo dessa aula é dar uma visão geral sobre a evolução da internet, web e suas tecnologias, além apresentar as ideias principais no que tange Arquitetura Web. Ao final da aula alguns experimentos práticos serão mostrados de forma a ilustrar alguns dos conceitos apresentados.
+Aula de Arquitetura da Web. Esta aula será utilizada na disciplina GAC116 - Programação Web. O objetivo dessa aula é dar uma visão geral sobre a evolução da internet, web e suas tecnologias, apresentar conceitos importantes, além apresentar as ideias principais no que tange Arquitetura Web. Ao final da aula alguns experimentos práticos serão mostrados de forma a ilustrar alguns dos conceitos apresentados.
 
 ## Recursos Utilizados
 
@@ -493,7 +493,7 @@ Agora, experimente alterar o valor da expressão matemática do código do clien
 
 Agora, experimente colocar alguma expressão inválida para avaliação. Por exemplo, `Cliente>Requisicao: (5+3)*2-4/2+x`. Rode e veja o erro gerado. Por quê ocorreu o erro?
 
-Agora, experimente rodar o servidor em um computador e o cliente em outro computador (ambos na mesma rede). Para isso, será necessário o cliente informar o endereço IP do servidor. Use o comando `ifconfig` no terminal para descobrir o endereço IP da máquina. No servidor, será necessário usar `HOST = "0.0.0.0"` devido as configurações específicas da rede do DCC.
+Agora, experimente rodar o servidor em um computador e o cliente em outro computador (ambos na mesma rede). Para isso, será necessário o cliente informar o endereço IP do servidor. Use o comando `ifconfig` no terminal para descobrir o endereço IP da máquina. No servidor, será necessário usar `HOST = "0.0.0.0"` para que o servidor escute em todas as interfaces de rede da máquina. Quando se usa `HOST = "127.0.0.1"` o servidor escuta apenas na interface de loopback (localhost).
 
 Agora, experimente rodar o servidor (`tcp-server.py`) em um computador e abrir o navegador na URL [http://127.0.0.1:65432/](http://127.0.0.1:65432/) no mesmo computador. O navegador não irá mostrar nada. No terminal do servidor, será mostrado que alguém se conectou, no entanto o navegador não fala o mesmo protocolo que o servidor. O navegador entende o protocolo HTTP e o nosso servidor espera uma mensagem no seguinte padrão `"Cliente>Requisicao: EXPRESSÃO"` (nosso protocolo).
 
@@ -624,7 +624,7 @@ Abra a URL no navegador [http://localhost:8080/](http://localhost:8080/).
 
 Se você abrir uma URL como [http://localhost:8080/exemplo](http://localhost:8080/exemplo) o método do_GET() será chamado. A variável `self.path` retorna a URL solicitada do navegador. Neste caso, a mensagem (URL) `/exemplo` será mostrada na tela.
 
-Experimente, acessar o servidor web de um colega da turma. Para isso, abra no navegador a URL: [http://IP-DO-COLEGA:8080/](http://IP-DO-COLEGA:8080/). **Atenção:** antes o colega precisa executar o comando `python3 basic-server.py` em seu computador, mas antes ele deve alterar o HOST para `0.0.0.0`, devido a configurações do laboratório.
+Experimente, acessar o servidor web de um colega da turma. Para isso, abra no navegador a URL: [http://IP-DO-COLEGA:8080/](http://IP-DO-COLEGA:8080/). **Atenção:** antes o colega precisa executar o comando `python3 basic-server.py` em seu computador, mas antes ele deve alterar o HOST para `0.0.0.0`.
 
 Para mais informações consulte: [https://pythonbasics.org/webserver/](https://pythonbasics.org/webserver/).
 
