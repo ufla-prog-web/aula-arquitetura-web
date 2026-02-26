@@ -5,11 +5,11 @@ import socket                                     # Importa o módulo socket
 HOST = "127.0.0.1"                                # Endereço de interface de loopback padrão (localhost). Use "0.0.0.0" para comunicação entre dois computadores diferentes
 PORT = 65432                                      # Porta para escutar (portas não privilegiadas são > 1023)
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: # Cria um socket TCP/IP
-    s.bind((HOST, PORT))                          # Liga o socket a um endereço e porta
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as servidor: # Cria um socket TCP/IP
+    servidor.bind((HOST, PORT))                   # Liga o socket a um endereço e porta
     print("Servidor: Aguardando conexões ...")
-    s.listen()                                    # Coloca o servidor no modo de escuta para aguardar conexões de clientes
-    conn, addr = s.accept()                       # Aceita conexões de clientes
+    servidor.listen()                             # Coloca o servidor no modo de escuta para aguardar conexões de clientes
+    conn, addr = servidor.accept()                # Aceita conexões de clientes
     with conn:
         print(f"Conectado: {addr}")               # Imprime uma mensagem
         while True:                               # Entra em um loop infinito para receber dados do cliente

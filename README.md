@@ -13,19 +13,9 @@
 
 * [Introdução](#introdução)
 * [Recursos Utilizados](#recursos-utilizados)
-* [Evolução da Internet](#evolução-da-internet)
-* [Evolução da Web](#evolução-da-web)
-* [Evolução das Tecnologias Web](#evolução-das-tecnologias-web)
-* [Gráficos Interessantes](#gráficos-interessantes)
-* [Modelo Cliente-Servidor](#modelo-cliente-servidor)
-* [Modelo Requisição-Resposta](#modelo-requisição-resposta)
-* [Modelo OSI e Modelo TCP/IP](#modelo-osi-e-modelo-tcpip)
-* [Protocolos TCP e UDP](#protocolos-tcp-e-udp)
-* [Protocolos HTTP e HTTPS](#protocolos-http-e-https)
-* [Frontend e Backend](#frontend-e-backend)
-* [Servidores Web](#servidores-web)
-* [Experimentos Comunicação Cliente-Servidor](#experimentos-comunicação-cliente-servidor)
-* [Experimentos Servidor Web em Python](#experimentos-servidor-web-em-python)
+* [Fundamentos Teóricos](#fundamentos-teóricos)
+* [Desenvolvimento de Experimentos](#desenvolvimento-de-experimentos)
+* [Desenvolva Novos Projetos](#desenvolva-novos-projetos)
 * [Créditos e Referências](#créditos-e-referências)
 
 ## Introdução
@@ -38,11 +28,13 @@ Aula de Arquitetura da Web. Esta aula será utilizada na disciplina GAC116 - Pro
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-A seguir estão listados os principais recursos utilizados no desenvolvimento desta aula.
+A seguir estão listados os principais recursos empregados no desenvolvimento desta aula.
 
-### Ambiente
+### Ferramentas
 
-* Github - Plataforma de Hospedagem de Códigos - [link](https://github.com/)
+* Visual Studio Code - Ambiente de Desenvolvimento Integrado - [Link](https://code.visualstudio.com/)
+* Github - Plataforma de hospedagem e colaboração em projetos de software - [link](https://github.com/)
+* http.server - Servidor web simples incluído na biblioteca padrão do Python - [link](https://docs.python.org/pt-br/3.13/library/http.server.html)
 
 ### Linguagens
 
@@ -54,12 +46,15 @@ A seguir estão listados os principais recursos utilizados no desenvolvimento de
 
 ### Bibliotecas
 
-* socket - Para a comunicação entre computadores - [link](https://docs.python.org/pt-br/3.8/howto/sockets.html)
-* http.server - Para a criação de um servidor web simples - [link](https://docs.python.org/pt-br/3.13/library/http.server.html)
+* socket - Biblioteca para realizar a comunicação entre computadores - [link](https://docs.python.org/pt-br/3.8/howto/sockets.html)
 
-## Evolução da Internet
+## Fundamentos Teóricos
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+
+A seguir estão destacados alguns dos principais fundamentos teóricos para entendimento deste tutorial.
+
+### Evolução da Internet
 
 A história da internet é uma jornada fascinante que abrange várias décadas e é marcada por uma série de desenvolvimentos cruciais. Aqui estão alguns dos principais destaques:
 
@@ -95,9 +90,7 @@ A história da internet é uma jornada fascinante que abrange várias décadas e
 
 Esses são apenas alguns dos principais destaques na história da internet.
 
-## Evolução da Web
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+### Evolução da Web
 
 **O que é a Web 1.0?**
 
@@ -123,11 +116,13 @@ Esses são apenas alguns dos principais destaques na história da internet.
 
 A imagem abaixo mostra uma visão geral sobre esse panorama da evoução da web.
 
-![Evolução da Web](./docs/web1.0-2.0-3.0.jpg)
+![Evolução da Web](./docs/web1-2-3.svg)
 
-## Evolução das Tecnologias Web
+A imagem abaixo estima o número de usuários de internet no mundo de 1990 a 2024.
 
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+![Grafico usuários de internet](./docs/grafico-usuarios-internet2.png)
+
+### Evolução das Tecnologias Web
 
 A imagem abaixo mostra uma visão geral sobre os anos de criação de algumas importantes tecnologias da web.
 
@@ -135,17 +130,7 @@ A imagem abaixo mostra uma visão geral sobre os anos de criação de algumas im
 
 [Link da Evolução das Tecnologias Web](http://127.0.0.1:5500/aula-arquitetura-web/timeline-web/index.html)
 
-## Gráficos Interessantes
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
-
-Gráfico que estima o número de usuários de internet no mundo de 1990 a 2024.
-
-![Grafico usuários de internet](./docs/grafico-usuarios-internet2.png)
-
-## Modelo Cliente-Servidor
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+### Modelo Cliente-Servidor
 
 O modelo cliente-servidor é uma arquitetura de rede amplamente utilizada na computação e na comunicação de dados, onde duas entidades principais, o cliente e o servidor, interagem para fornecer e consumir serviços e recursos. Esse modelo é a base da maioria das aplicações da web, sistemas de banco de dados e muitas outras tecnologias de rede.
 
@@ -183,9 +168,7 @@ Cada site que você acessa, seja um blog WordPress, um aplicativo como Facebook,
     * **E-mails:** Clientes de e-mail solicitam e enviam mensagens por meio de servidores de e-mail.
     * **Bancos de Dados:** Um aplicativo de gerenciamento de banco de dados (cliente) envia comandos SQL para um servidor de banco de dados, que processa e retorna os resultados.
 
-## Modelo Requisição-Resposta
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+### Modelo Requisição-Resposta
 
 Uma outra forma de entender (chamar) o modelo cliente-servidor é pensar como um modelo de requisição-resposta em que o cliente envia a solicitação/requisição e o servidor responde com os dados.
 
@@ -195,14 +178,12 @@ O servidor ao receber a requisição, processa a requisição (podendo consultar
 
 ![Modelo Requisição-Resposta](./docs/modelo-requisicao-resposta.png)
 
-A imagem a seguir mostra a estrutura de uma mensagem HTTP, tanto na requisição enviada pelo cliente quanto na resposta retornada pelo servidor. Cada mensagem é composta por quatro partes principais: a linha inicial (*start line*), que indica o método usado (como POST) e a versão do protocolo na requisição, ou o código de status na resposta (como 403 Forbidden); os cabeçalhos (*headers*), que trazem informações adicionais sobre a mensagem, como tipo de conteúdo, comprimento e detalhes do servidor ou cliente; uma linha em branco, que separa os cabeçalhos do corpo; e, por fim, o corpo (*body*), onde ficam os dados transmitidos, como um JSON no caso da requisição ou um documento HTML na resposta. Essa estrutura padronizada garante que clientes (como navegadores ou programas) e servidores consigam se comunicar corretamente pela Web.
+A imagem a seguir mostra a estrutura de uma mensagem HTTP, tanto na requisição enviada pelo cliente quanto na resposta retornada pelo servidor. Cada mensagem é composta por quatro partes principais: a linha inicial (*start line*), que indica o método usado (como POST) e a versão do protocolo na requisição, ou o código de *status* na resposta (como 403 *Forbidden*); os cabeçalhos (*headers*), que trazem informações adicionais sobre a mensagem, como tipo de conteúdo, comprimento e detalhes do servidor ou cliente; uma linha em branco, que separa os cabeçalhos do corpo; e, por fim, o corpo (*body*), onde ficam os dados transmitidos, como um JSON no caso da requisição ou um documento HTML na resposta. Essa estrutura padronizada garante que clientes (como navegadores ou programas) e servidores consigam se comunicar corretamente pela Web.
 
 ![Protocolo HTTP](./docs/protocolo-http.png)
 Fonte: [Mozilla](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages)
 
-## Modelo OSI e Modelo TCP/IP
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+### Modelo OSI e Modelo TCP/IP
 
 A imagem abaixo relembra rapidamente as camadas envolvidas em uma rede de computadores.
 
@@ -218,16 +199,14 @@ A imagem abaixo relembra rapidamente as camadas envolvidas em uma rede de comput
     * **Aplicação**: É a camada mais próxima do usuário, onde operam os protocolos de serviços.
 
 * **Modelo TCP/IP**: O Modelo TCP/IP é mais simples e é o padrão da Internet. Ele possui quatro camadas:
-    * **Acesso à Rede**: Equivale às camadas Física e de Enlace do OSI. Ex.: Ethernet, Wi-Fi.
-    * **Internet**: Equivale à camada de Rede do OSI. Ex.: IP (responsável pelo endereçamento e roteamento).
-    * **Transporte**: Equivale à camada de Transporte do OSI. Ex.: TCP e UDP.
-    * **Aplicação**: Agrupa as camadas de Sessão, Apresentação e Aplicação do OSI. Ex.: HTTP, HTTPS, FTP, DNS, SMTP, POP3.
+    * **Acesso à Rede**: Equivale às camadas Física e de Enlace do OSI. Alguns protocolos dessa camada são Ethernet, Wi-Fi e Frame Relay.
+    * **Internet**: Equivale à camada de Rede do OSI. O principal protocolo dessa camada é o IP (responsável pelo endereçamento e roteamento).
+    * **Transporte**: Equivale à camada de Transporte do OSI. Alguns protocolos dessa camada são TCP e UDP.
+    * **Aplicação**: Agrupa as camadas de Sessão, Apresentação e Aplicação do OSI. Alguns protocolos dessa camada são HTTP, HTTPS, FTP, DNS, SMTP, POP3.
 
-![Camadas Rede Computadores](./docs/camadas-rede-computadores-protocolos.png)
+![Camadas Rede Computadores Protocolos](./docs/camadas-rede-computadores-protocolos.png)
 
-## Protocolos TCP e UDP
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+### Protocolos TCP e UDP
 
 O **TCP** e o **UDP** são dois dos principais protocolos de transporte usados na comunicação de redes, especialmente na Internet. Eles operam na camada de transporte do modelo OSI e do modelo TCP/IP, sendo responsáveis por gerenciar a forma como os dados são transmitidos entre dispositivos.
 
@@ -254,9 +233,7 @@ O **TCP** e o **UDP** são dois dos principais protocolos de transporte usados n
 
 Esses protocolos são escolhidos com base nas necessidades específicas de cada aplicação, equilibrando a necessidade de confiabilidade e velocidade.
 
-## Protocolos HTTP e HTTPS
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+### Protocolos HTTP e HTTPS
 
 Os protocolos **HTTP (*Hypertext Transfer Protocol*)** e **HTTPS (*Hypertext Transfer Protocol Secure*)** são protocolos de comunicação (da camada de aplicação) utilizados na transferência de dados na web, sendo fundamentais para o funcionamento da internet como a conhecemos hoje. Eles definem como os dados são formatados, transmitidos e respondidos entre clientes (como navegadores) e servidores web.
 
@@ -283,7 +260,7 @@ Os protocolos **HTTP (*Hypertext Transfer Protocol*)** e **HTTPS (*Hypertext Tra
 
     * **Uso:** HTTPS é amplamente utilizado para proteger transações sensíveis, como login de usuários, compras online, comunicações bancárias, e qualquer troca de dados onde a segurança e a privacidade sejam essenciais. Hoje, é considerado o padrão para a maioria dos sites na internet devido à importância crescente da segurança.
 
-### Diferenças Principais
+**Diferenças Principais**
 
 * **Segurança:** HTTP não oferece proteção contra interceptação ou alteração de dados, enquanto HTTPS protege a comunicação com criptografia e autenticação.
 * **Portas:** HTTP usa a porta 80, enquanto HTTPS usa a porta 443.
@@ -291,9 +268,128 @@ Os protocolos **HTTP (*Hypertext Transfer Protocol*)** e **HTTPS (*Hypertext Tra
 
 HTTPS é uma evolução necessária do HTTP, respondendo à crescente necessidade de segurança na web, garantindo uma navegação mais segura para os usuários.
 
-## Frontend e Backend
+### Endereço IP e Portas
 
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+**O que é um endereço IP?**
+
+Um IP (*Internet Protocol*) é um número que identifica um dispositivo conectado a uma rede (como a Internet ou a rede da universidade). É como um endereço de casa, mas para computadores.
+
+Exemplo de IP no formato IPv4:
+
+```text
+192.168.0.10
+```
+
+Ele é usado para fazer com que as máquinas "encontrem" umas às outras na rede.
+
+O IPv4 é dividido nas seguintes classes:
+
+* **Classe A**: Redes grandes (0.0.0.0 a 127.0.0.0).
+* **Classe B**: Redes médias (128.0.0.0 a 191.255.0.0).
+* **Classe C**: Redes pequenas (192.0.0.0 a 223.255.255.0).
+* **Classe D**: Usada para multicast (224.0.0.0 a 239.255.255.255).
+* **Classe E**: Reservada para testes e pesquisas (240.0.0.0 a 255.255.255.255).
+
+**O que são Portas?**
+
+Quando dois computadores se comunicam, um endereço IP indica "quem" é o computador, e a porta indica qual serviço está sendo acessado nesse computador. Uma porta é um número de 0 a 65535.
+
+Portas comuns:
+
+| Porta   | Uso comum                                                       |
+| ------- | --------------------------------------------------------------- |
+| 20, 21  | FTP - transferência de arquivos                                 |
+| 22      | SSH - acesso remoto seguro e gerenciamento                      |
+| 80      | HTTP - páginas web não criptografados                           |
+| 110     | POP3 - recebimento de e-mail                                    |
+| 143     | IMAP - acesso a e-mail                                          |
+| 443     | HTTPS - páginas web seguras com criptografia                    |
+| 3306    | MySQL - Banco de dados                                          |
+| 5432    |	PostgreSQL - Banco de dados                                     |
+| 8000    | HTTP alternativa - usado em servidores de desenvolvimento       |
+| 8008    | HTTP Alternativa - usado em servidores de desenvolvimento       |
+| 8080    | HTTP Alternativa - usado em servidores de desenvolvimento       |
+
+Para mais informações, consulte o [link](https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP).
+
+### Métodos HTTP
+
+Quando um cliente (navegador web ou app) faz uma requisição a um servidor web, ele usa um método HTTP para indicar a intenção. Os métodos podem ser dos seguintes tipos:
+
+**GET**
+
+Usado para solicitar dados do servidor.
+
+* Não altera nada no servidor
+* Usado para obter páginas, imagens, listas de registros
+
+Por exemplo:
+
+```json
+GET /produtos
+```
+
+Esse código significa: "me traga a lista de produtos".
+
+**POST**
+
+Usado para enviar novos dados ao servidor.
+
+* Cria algo novo
+* Pode enviar formulários, criar registros
+
+Por exemplo:
+
+```json
+POST /produtos
+{"nome": "Caneca", "preco": 29.90}
+```
+
+Esse código significa: "adicione um novo produto".
+
+**PUT**
+
+Usado para atualizar um recurso existente.
+
+* Modifica um registro já existente
+* Normalmente recebe a identificação do item
+
+Por exemplo:
+
+```json
+PUT /produtos/10
+{"preco": 34.90}
+```
+
+Esse código significa: "atualize o produto de ID 10".
+
+**DELETE**
+
+Usado para excluir um recurso no servidor. Por exemplo:
+
+```json
+DELETE /produtos/10
+```
+
+Esse código significa: "remova o produto de ID 10".
+
+### Códigos de Status HTTP
+
+Quando um navegador acessa um servidor web, o servidor retorna um código de status HTTP indicando o resultado. Os principais códigos de retorno são encontrados abaixo:
+
+| Código                        | Significado Básico                          |
+| ----------------------------- | ------------------------------------------- |
+| **200 OK**                    | A requisição foi bem-sucedida               |
+| **301 Moved Permanently**     | Redirecionamento a página mudou de endereço |
+| **400 Bad Request**           | Requisição inválida                         |
+| **401 Unauthorized**          | Acesso não autorizado                       |
+| **404 Not Found**             | O recurso não foi encontrado                |
+| **500 Internal Server Error** | Erro no servidor                            |
+| **507 Insufficient Storage**  | Falta de espaço para completar a requisição |
+
+Estes códigos ajudam a saber se a comunicação foi correta ou se ocorreu algum problema. Para mais informações, consulte o [link](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status).
+
+### Frontend e Backend
 
 **Frontend** e **backend** são termos utilizados para descrever as duas partes principais de uma aplicação web ou software: a interface com o usuário (frontend) e a lógica de processamento e gerenciamento de dados (backend). Esses dois componentes trabalham juntos para criar aplicações completas e funcionais.
 
@@ -333,12 +429,9 @@ HTTPS é uma evolução necessária do HTTP, respondendo à crescente necessidad
 
 Esses dois componentes são essenciais para o desenvolvimento de aplicações modernas, garantindo que tanto a parte visual quanto a lógica do sistema funcionem de maneira harmoniosa e eficiente.
 
-![Frontend Backend](./docs/frontend-backend2.png)
-![Frontend Backend](./docs/frontend-backend3.png)
+![Frontend - Backend](./docs/frontend-backend.png)
 
-## Servidores Web
-
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+### Servidores Web
 
 Servidores web são sistemas dedicados para atender requisições de clientes (como navegadores web) para fornecer conteúdo na internet. Eles recebem solicitações HTTP/HTTPS e respondem com recursos, como páginas HTML, CSS, Javascript, imagens, arquivos, vídeos, ou outros tipos de dados.
 
@@ -385,11 +478,15 @@ Servidores web são sistemas dedicados para atender requisições de clientes (c
 
 Servidores web são componentes críticos da internet, responsáveis por entregar conteúdo e gerenciar a interação entre os usuários e as aplicações online. Eles variam em complexidade e recursos, mas todos compartilham a função central de atender e responder a requisições de clientes, facilitando a comunicação entre navegadores e servidores.
 
-## Experimentos Comunicação Cliente-Servidor
+## Desenvolvimento de Experimentos
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-A seguir iremos analisar dois códigos em Python que implementam o modelo cliente-servidor básico usando sockets com o protocolo de comunicação TCP/IP. O cliente envia uma mensagem para o servidor solicitando que o mesmo avalie uma expressão matemática. O servidor, após receber a mensagem, processa a mensagem. Primeiro, ele isola a expressão, avalia a expressão e, por fim, envia a resposta de volta ao cliente.
+A seguir tem-se um conjuntos de experimentos para serem executados de forma a obter uma compreensão melhor da aula.
+
+### Experimentos de Comunicação Cliente-Servidor via TCP
+
+A seguir iremos analisar alguns códigos em Python que implementam o modelo cliente-servidor básico usando sockets com o protocolo de comunicação TCP/IP. O cliente envia uma mensagem para o servidor solicitando que o mesmo avalie uma expressão matemática. O servidor, após receber a mensagem, processa a mensagem. Primeiro, ele isola a expressão, avalia a expressão e, por fim, envia a resposta de volta ao cliente.
 
 Analise o código do Servidor mostrado a seguir.
 
@@ -401,11 +498,11 @@ import socket
 HOST = "127.0.0.1"
 PORT = 65432
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST, PORT))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as servidor:
+    servidor.bind((HOST, PORT))
     print("Servidor: Aguardando conexões ...")
-    s.listen()
-    conn, addr = s.accept()
+    servidor.listen()
+    conn, addr = servidor.accept()
     with conn:
         print(f"Conectado: {addr}")
         while True:
@@ -428,9 +525,9 @@ Abaixo está uma explicação do que esse código faz:
 * Importa o módulo `socket`.
 * Define o endereço IP e a porta do servidor (`HOST` e `PORT`).
 * Cria um socket TCP/IP usando `socket.socket(socket.AF_INET, socket.SOCK_STREAM)`.
-* Liga o socket a um endereço e porta específicos usando `s.bind((HOST, PORT))`.
-* Coloca o servidor no modo de escuta para aguardar conexões de clientes usando `s.listen()`.
-* Aceita conexões de clientes usando `s.accept()`. Quando uma conexão é aceita, ele retorna um novo socket (`conn`) e o endereço do cliente (`addr`).
+* Liga o socket a um endereço e porta específicos usando `servidor.bind((HOST, PORT))`.
+* Coloca o servidor no modo de escuta para aguardar conexões de clientes usando `servidor.listen()`.
+* Aceita conexões de clientes usando `servidor.accept()`. Quando uma conexão é aceita, ele retorna um novo socket (`conn`) e o endereço do cliente (`addr`).
 * Entra em um loop infinito para receber dados do cliente.
 * Recebe dados do cliente usando `conn.recv(1024)`.
 * Extrai a expressão matemática presente na mensagem recebida usando `sdata.split(": ")[1][:-1]` (Protocolo definido nesse exemplo).
@@ -449,13 +546,17 @@ import socket
 HOST = "127.0.0.1"
 PORT = 65432
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, PORT))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as cliente:
+    cliente.connect((HOST, PORT))
     print(f"Conectado: {(HOST, PORT)}")
-    print("Cliente>Requisicao: (5+3)*2-4/2+100")
-    s.sendall(b"Cliente>Requisicao: (5+3)*2-4/2+100")
-    data = s.recv(1024)
-    print(data)
+    protocolo = "Cliente>Requisicao: "
+    expressao = "(5+3)*2-4/2+100"
+    pergunta = protocolo + str(expressao)  
+    cliente.sendall(bytes(pergunta, 'utf-8'))
+    data = cliente.recv(1024)
+    print(pergunta)
+    print(data.decode('utf-8'))
+
 print("Conexão Fechada")
 ```
 
@@ -464,10 +565,10 @@ Abaixo está uma explicação do que esse código faz:
 * Importa o módulo `socket`.
 * Define o endereço IP e a porta do servidor (`HOST` e `PORT`).
 * Cria um socket TCP/IP usando `socket.socket(socket.AF_INET, socket.SOCK_STREAM)`.
-* Conecta-se ao servidor usando `s.connect((HOST, PORT))`.
-* Envia os bytes da mensagem para o servidor usando `s.sendall(b"Cliente>Requisicao: expressão")`.
-* O texto "Cliente>Requisicao: expressão" define um formato de protocolo para a requisição.
-* Aguarda receber dados do servidor usando `s.recv(1024)`.
+* Conecta-se ao servidor usando `cliente.connect((HOST, PORT))`.
+* A variável pergunta define o protocolo com a expressão da nossa requisição.
+* Envia os bytes da mensagem para o servidor usando `cliente.sendall(bytes(pergunta, 'utf-8'))`.
+* Aguarda receber dados do servidor usando `cliente.recv(1024)`.
 * Imprime a mensagem recebida do servidor.
 * Fecha o socket.
 
@@ -485,7 +586,7 @@ python3 tcp-client.py
 
 Repare que o servidor recebe a requisição do cliente e envia a resposta de volta.
 
-Agora, experimente alterar o valor da expressão matemática do código do cliente. Por exemplo: 
+Agora, experimente alterar o valor da expressão matemática do código do cliente. Por exemplo:
 
 * `Cliente>Requisicao: 10-3*2+4/3`
 * `Cliente>Requisicao: (True and False) or True`
@@ -507,29 +608,109 @@ import socket
 HOST = "127.0.0.1"
 PORT = 65432
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, PORT))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as cliente:
+    cliente.connect((HOST, PORT))
     print(f"Conectado: {(HOST, PORT)}")
     protocolo = "Cliente>Requisicao: "
     expressao = input()
     while expressao != "fim":
-        msg = protocolo + expressao
-        s.sendall(msg.encode('utf-8'))
-        data = s.recv(1024)
-        print(msg)
+        pergunta = protocolo + expressao
+        cliente.sendall(pergunta.encode('utf-8'))
+        data = cliente.recv(1024)
+        print(pergunta)
         print(data.decode('utf-8'))
         expressao = input()
 
 print("Conexão Fechada")
 ```
 
-## Experimentos Servidor Web em Python
+Para executar essas aplicações, em um terminal (na mesma pasta do arquivo `tcp-server.py`), execute os comandos abaixo:
 
-<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+```bash
+python3 tcp-server.py
+```
+
+Em outro terminal (na mesma pasta do arquivo `tcp-client2.py`), execute o comando abaixo:
+
+```bash
+python3 tcp-client2.py
+```
+
+Agora, repare que o servidor recebe as múltiplas requisição do mesmo cliente e envia as respostas de volta.
+
+### Experimentos de Comunicação Cliente-Servidor via UDP
+
+A seguir iremos analisar dois códigos em Python que implementam o modelo cliente-servidor básico usando sockets com o protocolo de comunicação UDP/IP. O cliente envia uma mensagem para o servidor solicitando que o mesmo avalie uma expressão matemática. O servidor, após receber a mensagem, processa a mensagem. Primeiro, ele isola a expressão, avalia a expressão e, por fim, envia a resposta de volta ao cliente.
+
+Analise o código do Servidor (UDP) mostrado a seguir.
+
+```python
+# udp-server.py
+
+import socket
+
+HOST = "127.0.0.1"
+PORT = 65433
+
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as servidor:
+    servidor.bind((HOST, PORT))
+    print("Servidor UDP: Aguardando mensagens ...")
+    while True:
+        dados, endereco = servidor.recvfrom(1024)
+        sdata = str(dados)
+        expressao = sdata.split(": ")[1][:-1]
+        respexp = eval(expressao)
+        resp = "Servidor>Resposta: " + str(respexp)
+        servidor.sendto(resp.encode("utf-8"), endereco)
+        print("Recebido de", endereco, ":", sdata)
+        print(resp)
+
+print("Conexão Fechada")
+```
+
+Analise o código do Cliente (UDP) mostrado a seguir.
+
+```python
+# udp-client.py
+
+import socket                                              # Importa o módulo socket
+
+HOST = "127.0.0.1"                                         # O endereço IP do servidor ou nome (host) do servidor
+PORT = 65433                                               # A porta usada pelo servidor
+
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as cliente: # Cria um socket UDP/IP
+    protocolo = "Cliente>Requisicao: "
+    expressao = "(4+3)*3"                          # Expressão matemática a ser enviada para o servidor
+    pergunta = protocolo + str(expressao)                  # Mensagem com a pergunta    
+    cliente.sendto(pergunta.encode("utf-8"), (HOST, PORT)) # Envia os bytes da mensagem da requisição
+    resposta, _ = cliente.recvfrom(1024)                   # Recebe os dados do servidor
+    print("Pergunta: ", pergunta)                          # Imprime a mensagem da pergunta
+    print("Resposta: ", resposta.decode("utf-8"))          # Imprime a mensagem recebida pelo servidor
+
+print("Conexão Fechada")
+```
+
+Para executar essas aplicações, em um terminal (na mesma pasta do arquivo `udp-server.py`), execute os comandos abaixo:
+
+```bash
+python3 udp-server.py
+```
+
+Em outro terminal (na mesma pasta do arquivo `udp-client.py`), execute o comando abaixo:
+
+```bash
+python3 udp-client.py
+```
+
+Repare que o servidor recebe a requisição do cliente e envia a resposta de volta.
+
+**Atenção:** Lembre-se que o protocolo TPC é orientado a conexão e garante a entrega da resposta, já o protocolo UDP é sem conexão e não garante a entrega. Neste exemplo, dado os resultados serão iguais por se tratar de uma aplicação extremamente simples, mas em aplicações mais complexas os resultados poderiam não ser entregues ao cliente.
+
+### Experimentos Servidor Web em Python
 
 Um servidor web em Python pode ser configurado de duas maneiras. Python oferece suporte a um servidor web pronto para uso. Você pode iniciar um servidor web com uma linha. Mas você também pode criar um servidor web personalizado com funcionalidades exclusivas.
 
-### Servidor Web Integrado
+#### Servidor Web Integrado
 
 Uma forma simples de iniciar um servidor web em Python (na porta 8000) é executando o seguinte comando:
 
@@ -577,7 +758,7 @@ python3 -m http.server
 
 Repare que o código dessa página `index.html` é automaticamente exibido, não listando mais os arquivos do diretório. Experimente mudar o nome do arquivo `index.html` para ver se muda alguma coisa.
 
-### Servidor Web Via Código
+#### Servidor Web Via Código
 
 Execute o código abaixo para iniciar um servidor web personalizado. Para criar um servidor web personalizado, precisamos usar o protocolo HTTP. Por padrão, o protocolo HTTP possui uma solicitação GET que retorna um arquivo no servidor. Se o arquivo for encontrado, ele retornará 200. O servidor iniciará na porta 8080 e aceitará solicitações padrão do navegador da web.
 
@@ -628,6 +809,22 @@ Experimente, acessar o servidor web de um colega da turma. Para isso, abra no na
 
 Para mais informações consulte: [https://pythonbasics.org/webserver/](https://pythonbasics.org/webserver/).
 
+### Momento para Reflexão
+
+* O que diferencia o papel do cliente e do servidor no modelo Cliente-Servidor?
+* O que aconteceria se não houvesse um protocolo definido (como "Cliente>Requisicao: EXPRESSÃO") entre cliente e servidor?
+* Qual a importância de existirem protocolos bem definidos (como HTTP) para que navegadores e servidores "falem a mesma língua"?
+* O que acontece quando um cliente tenta se comunicar com um servidor, mas não utiliza o protocolo esperado?
+
+## Desenvolva Novos Projetos
+
+<a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
+
+Com os conhecimentos adquiridos sobre comunicação via socket em Python desenvolva novos projetos para praticar e consolidar o aprendizado:
+
+* Generalize o servidor web com sockets (código `tcp-server.py`) para receber multiplas requisições de multiplos clientes.
+* Desenvolva um chat usando socket.
+
 ## Créditos e Referências
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
@@ -641,3 +838,5 @@ Este tutorial utilizou parte dos seguintes materiais:
 * [Medium - Métodos HTTP: Quais são e qual a funcionalidade deles](https://medium.com/@renejr03/m%C3%A9todos-http-quais-s%C3%A3o-e-qual-a-funcionalidade-deles-491b1cc5d5b4)
 * [Medium - Capítulo 2 : Fundamentos da Arquitetura Web](https://medium.com/@tanstorm/cap%C3%ADtulo-2-fundamentos-da-arquitetura-web-751b82532d6d)
 * [https://pythonbasics.org/webserver/](https://pythonbasics.org/webserver/)
+* [https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP](https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP)
+* [https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)
