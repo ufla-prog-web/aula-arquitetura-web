@@ -22,7 +22,7 @@
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-Aula de Arquitetura da Web. Esta aula será utilizada na disciplina GAC116 - Programação Web. O objetivo dessa aula é dar uma visão geral sobre a evolução da internet, web e suas tecnologias, apresentar conceitos importantes, além apresentar as ideias principais no que tange Arquitetura Web. Ao final da aula alguns experimentos práticos serão mostrados de forma a ilustrar alguns dos conceitos apresentados.
+O objetivo deste tutorial é introduzir os conceitos fundamentais da Arquitetura Web. A primeira parte deste tutorial é teórica em que são estabelecidas as bases conceituais, já a segunda parte deste tutorial é prática. A Web que conhecemos hoje não surgiu pronta: ela se desenvolveu gradualmente, ganhando protocolos, padrões e princípios que permitem que aplicações em todo o mundo comuniquem-se de forma eficiente e padronizada. Antes de entendermos como construir páginas ou aplicações web, é fundamental compreender como a Web funciona por baixo dos panos - desde a identificação dos computadores na rede até a troca de mensagens entre cliente e servidor. Esse material será utilizado na disciplina GAC116 - Programação Web da Universidade Federal de Lavras (UFLA).
 
 ## Recursos Utilizados
 
