@@ -284,11 +284,13 @@ Ele é usado para fazer com que as máquinas "encontrem" umas às outras na rede
 
 O IPv4 é dividido nas seguintes classes:
 
-* **Classe A**: Redes grandes (0.0.0.0 a 127.0.0.0).
-* **Classe B**: Redes médias (128.0.0.0 a 191.255.0.0).
-* **Classe C**: Redes pequenas (192.0.0.0 a 223.255.255.0).
+* **Classe A**: Redes grandes (1.0.0.0 a 126.255.255.255).
+* **Classe B**: Redes médias (128.0.0.0 a 191.255.255.255).
+* **Classe C**: Redes pequenas (192.0.0.0 a 223.255.255.255).
 * **Classe D**: Usada para multicast (224.0.0.0 a 239.255.255.255).
 * **Classe E**: Reservada para testes e pesquisas (240.0.0.0 a 255.255.255.255).
+
+Além disso, o endereço `0.0.0.0` é endereço especial e significa significa "todo mundo pode acessar". E o endereço `127.0.0.0` ou (`localhost`) é reservado para loopback, ou seja, significa o "este computador".
 
 **O que são Portas?**
 
@@ -429,7 +431,7 @@ Estes códigos ajudam a saber se a comunicação foi correta ou se ocorreu algum
 
 Esses dois componentes são essenciais para o desenvolvimento de aplicações modernas, garantindo que tanto a parte visual quanto a lógica do sistema funcionem de maneira harmoniosa e eficiente.
 
-![Frontend - Backend](./docs/frontend-backend.png)
+![Frontend - Backend](./docs/frontend-backend4.png)
 
 ### Servidores Web
 
@@ -718,19 +720,19 @@ Uma forma simples de iniciar um servidor web em Python (na porta 8000) é execut
 python3 -m http.server
 ```
 
-Para trocar a porta utilizada, execute o comando abaixo (no exemplo usamos a porta 8123):
+Para trocar a porta utilizada, execute o comando abaixo (no exemplo usamos a porta 8008):
 
 ```bash
-python3 -m http.server 8123
+python3 -m http.server 8008
 ```
 
-Caso esse comando seja executado de um diretório que não contenha o arquivo `index.html` então os arquivos do diretório são exibidos no navegador.
+Caso esse comando seja executado de um diretório que não contenha o arquivo `index.html` então os arquivos do diretório são exibidos no navegador. Ou seja, esse comando pode ser usado para servir arquivos do diretório atual e assim compartilhar arquivos em rede.
 
 Abra no navegador a URL: [http://0.0.0.0:8000/](http://0.0.0.0:8000/) ou [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
-Este é um servidor padrão que você pode usar para baixar arquivos da máquina.
+Este é um servidor padrão que você pode usar para compartilhar e baixar arquivos da máquina.
 
-Experimente, acessar os diretórios do computador de um colega da turma. Para isso, abra no navegador a URL: [http://IP-DO-COLEGA:8000/](http://IP-DO-COLEGA:8000/). **Atenção**: antes o colega precisa executar o comando `python3 -m http.server` em seu computador.
+Experimente, acessar os diretórios do computador de um colega da turma. Para isso, abra no navegador a URL: [http://IP-DO-COLEGA:8000/](http://IP-DO-COLEGA:8000/). **Atenção**: antes o colega precisa executar o comando `python3 -m http.server` em seu computador. **Dica**: para descobrir o IP de um computador utilize os comandos `ifconfig` ou `ip addr` no Linux.
 
 Crie agora um arquivo `index.html` no diretório em que está se executando o servidor HTTP do Python. Coloque nesse arquivo o seguinte conteúdo:
 
@@ -767,7 +769,7 @@ Execute o código abaixo para iniciar um servidor web personalizado. Para criar 
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-HOST = "localhost"
+HOST = "0.0.0.0"
 PORT = 8080
 
 class MyServer(BaseHTTPRequestHandler):
@@ -782,17 +784,16 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p>Rota Requisitada: %s</p>" % self.path, "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
-if __name__ == "__main__":
-    webServer = HTTPServer((HOST, PORT), MyServer)
-    print("Servidor iniciado em http://%s:%s" % (HOST, PORT))
+webServer = HTTPServer((HOST, PORT), MyServer)
+print("Servidor iniciado em http://%s:%s" % (HOST, PORT))
 
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
+try:
+    webServer.serve_forever()
+except KeyboardInterrupt:
+    pass
 
-    webServer.server_close()
-    print("Servidor parado.")
+webServer.server_close()
+print("Servidor parado.")
 ```
 
 Execute o código acima, utilizando o comando abaixo:
