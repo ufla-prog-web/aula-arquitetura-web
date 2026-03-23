@@ -4,7 +4,7 @@
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-HOST = "localhost"
+HOST = "0.0.0.0"
 PORT = 8080
 
 class MyServer(BaseHTTPRequestHandler):
@@ -19,14 +19,13 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p>Rota Requisitada: %s</p>" % self.path, "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
 
-if __name__ == "__main__":
-    webServer = HTTPServer((HOST, PORT), MyServer)
-    print("Servidor iniciado em http://%s:%s" % (HOST, PORT))
+webServer = HTTPServer((HOST, PORT), MyServer)
+print("Servidor iniciado em http://%s:%s" % (HOST, PORT))
 
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
+try:
+    webServer.serve_forever()
+except KeyboardInterrupt:
+    pass
 
-    webServer.server_close()
-    print("Servidor parado.")
+webServer.server_close()
+print("Servidor parado.")
