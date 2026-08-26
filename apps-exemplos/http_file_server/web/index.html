@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servidor de arquivos didatico construido com HTTPServer do Python">
+  <title>FileBox • Servidor de Arquivos</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="FileBox">
+        <span class="brand-mark">F</span>
+        <span>
+          <strong>FileBox</strong>
+          <small>HTTPServer + Python</small>
+        </span>
+      </a>
+      <div class="server-status"><span class="status-dot"></span> servidor online</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Servidor local de arquivos</span>
+          <h1>Seus arquivos, em uma interface simples e agradável.</h1>
+          <p>Envie, encontre, baixe e exclua arquivos diretamente pelo navegador.</p>
+        </div>
+        <div class="hero-stat">
+          <span id="fileCount">0</span>
+          <small>arquivos disponíveis</small>
+        </div>
+      </section>
+
+      <section class="upload-card" id="dropZone">
+        <input type="file" id="fileInput" multiple hidden>
+        <div class="upload-icon" aria-hidden="true">⇧</div>
+        <div>
+          <h2>Arraste arquivos para cá</h2>
+          <p>ou <button class="link-button" id="chooseFiles" type="button">selecione no computador</button></p>
+          <small id="uploadLimit">Carregando limite de upload…</small>
+        </div>
+      </section>
+
+      <section class="progress-area" id="progressArea" hidden></section>
+
+      <section class="files-section">
+        <div class="section-header">
+          <div>
+            <span class="eyebrow">Biblioteca</span>
+            <h2>Arquivos disponíveis</h2>
+          </div>
+          <div class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Buscar arquivo..." autocomplete="off">
+          </div>
+        </div>
+
+        <div class="file-list" id="fileList" aria-live="polite"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <div class="empty-icon">◇</div>
+          <h3>Nenhum arquivo por aqui</h3>
+          <p>Envie o primeiro arquivo usando a área acima.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Projeto didático com <code>http.server.HTTPServer</code> e JavaScript puro.
+    </footer>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratório HTTP</title>
+  <link rel="stylesheet" href="/web/style.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="hero shell">
+    <div>
+      <p class="eyebrow">Python + HTTPServer</p>
+      <h1>Laboratório HTTP</h1>
+      <p class="subtitle">Experimente métodos, cabeçalhos, cookies, códigos de status e redirecionamentos em um servidor local.</p>
+    </div>
+    <div class="server-pill"><span class="dot"></span> servidor local</div>
+  </header>
+
+  <main class="shell layout">
+    <aside class="side card">
+      <h2>Experimentos</h2>
+      <button class="nav-btn active" data-target="request-lab">Requisições</button>
+      <button class="nav-btn" data-target="status-lab">Status HTTP</button>
+      <button class="nav-btn" data-target="cookie-lab">Cookies</button>
+      <button class="nav-btn" data-target="redirect-lab">Redirecionamento</button>
+      <button class="nav-btn" data-target="header-lab">Cabeçalhos</button>
+      <div class="tip">
+        <strong>Dica</strong>
+        <p>Abra também as DevTools do navegador, especialmente as abas <em>Network</em> e <em>Application</em>.</p>
+      </div>
+    </aside>
+
+    <section class="content">
+      <section id="request-lab" class="panel card active-panel">
+        <div class="panel-head">
+          <div><p class="kicker">1</p><h2>Inspecionar uma requisição</h2></div>
+          <span class="tag">/api/inspect</span>
+        </div>
+        <p>Escolha um método HTTP, adicione cabeçalhos e um corpo. O servidor devolve exatamente o que recebeu.</p>
+        <div class="grid two">
+          <label>Método
+            <select id="method">
+              <option>GET</option><option>POST</option><option>PUT</option><option>PATCH</option><option>DELETE</option><option>OPTIONS</option><option>HEAD</option>
+            </select>
+          </label>
+          <label>Query string
+            <input id="query" value="nome=Ana&curso=Redes" placeholder="chave=valor&x=1">
+          </label>
+        </div>
+        <label>Cabeçalhos personalizados <span class="hint">um por linha: Nome: valor</span>
+          <textarea id="headers" rows="4">X-Aula: HTTP\nX-Cliente: Navegador</textarea>
+        </label>
+        <label>Corpo da requisição
+          <textarea id="body" rows="7">{\n  "mensagem": "Olá, servidor!",\n  "disciplina": "Redes"\n}</textarea>
+        </label>
+        <div class="actions">
+          <button class="primary" id="send-request">Enviar requisição</button>
+          <button class="secondary" id="clear-output">Limpar resposta</button>
+        </div>
+      </section>
+
+      <section id="status-lab" class="panel card">
+        <div class="panel-head"><div><p class="kicker">2</p><h2>Testar códigos de status</h2></div><span class="tag">/api/status/&lt;código&gt;</span></div>
+        <p>Faça o servidor responder deliberadamente com diferentes códigos HTTP.</p>
+        <div class="status-grid" id="status-buttons"></div>
+        <div class="grid status-custom">
+          <label>Código personalizado
+            <input id="custom-status" type="number" min="200" max="599" value="418">
+          </label>
+          <button class="primary" id="send-status">Testar código</button>
+        </div>
+      </section>
+
+      <section id="cookie-lab" class="panel card">
+        <div class="panel-head"><div><p class="kicker">3</p><h2>Cookies</h2></div><span class="tag">Set-Cookie / Cookie</span></div>
+        <p>Observe como o servidor envia <code>Set-Cookie</code> e como o navegador devolve <code>Cookie</code> nas requisições seguintes.</p>
+        <div class="grid two">
+          <label>Nome
+            <input id="cookie-name" value="usuario">
+          </label>
+          <label>Valor
+            <input id="cookie-value" value="joao">
+          </label>
+        </div>
+        <div class="actions wrap">
+          <button class="primary" id="set-cookie">Definir cookie</button>
+          <button class="secondary" id="read-cookie">Ler cookies enviados</button>
+          <button class="danger" id="delete-cookie">Excluir cookie</button>
+        </div>
+        <div class="cookie-view" id="cookie-view">Nenhum experimento executado ainda.</div>
+      </section>
+
+      <section id="redirect-lab" class="panel card">
+        <div class="panel-head"><div><p class="kicker">4</p><h2>Redirecionamentos</h2></div><span class="tag">Location</span></div>
+        <p>Teste os códigos 301, 302, 303, 307 e 308. O laboratório usa <code>redirect: 'manual'</code> para você observar a resposta sem seguir automaticamente.</p>
+        <div class="grid two">
+          <label>Código
+            <select id="redirect-code"><option>301</option><option selected>302</option><option>303</option><option>307</option><option>308</option></select>
+          </label>
+          <label>Destino
+            <input id="redirect-to" value="/?origem=redirect">
+          </label>
+        </div>
+        <button class="primary" id="test-redirect">Testar redirecionamento</button>
+      </section>
+
+      <section id="header-lab" class="panel card">
+        <div class="panel-head"><div><p class="kicker">5</p><h2>Cabeçalhos de resposta</h2></div><span class="tag">X-Demo-Header</span></div>
+        <p>Peça ao servidor para incluir um cabeçalho personalizado e veja o resultado.</p>
+        <label>Valor do cabeçalho <code>X-Demo-Header</code>
+          <input id="demo-header" value="Cabeçalho criado em aula">
+        </label>
+        <button class="primary" id="test-header">Enviar</button>
+      </section>
+
+      <section class="card console-card">
+        <div class="console-head">
+          <div><p class="eyebrow">Resposta</p><h2>Console do laboratório</h2></div>
+          <span id="response-badge" class="response-badge idle">aguardando</span>
+        </div>
+        <div class="meta-row" id="response-meta"></div>
+        <pre id="output">Envie um experimento para visualizar aqui a resposta do servidor.</pre>
+      </section>
+    </section>
+  </main>
+
+  <footer class="shell">Laboratório didático local · Python <code>http.server.HTTPServer</code></footer>
+  <script src="/web/app.js"></script>
+</body>
+</html>
