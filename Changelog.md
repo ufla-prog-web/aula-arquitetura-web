@@ -23,3 +23,10 @@ Todas as mudanças neste projeto serão documentadas neste arquivo.
 * Adicionado seção Experimentos de Comunicação Cliente-Servidor via UDP.
 * Adicionado seção Momento para Reflexão.
 * Adicionado seção Desenvolva Novos Projetos.
+
+## 2026-
+
+* Reorganização da tabela de Portas.
+* Reorganização da seção Crédito e Referências.
+* Ajustes nos endereços IPs em alguns dos scripts.
+* Adicionei pasta com apps-exemplos gerado por IA usando biblioteca HTTP-Server.
