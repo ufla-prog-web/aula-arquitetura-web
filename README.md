@@ -16,7 +16,7 @@
 * [Fundamentos Teóricos](#fundamentos-teóricos)
 * [Desenvolvimento de Experimentos](#desenvolvimento-de-experimentos)
 * [Desenvolva Novos Projetos](#desenvolva-novos-projetos)
-* [Créditos e Referências](#créditos-e-referências)
+* [Referências e Materiais de Apoio](#referências-e-materiais-de-apoio)
 
 ## Introdução
 
@@ -290,7 +290,7 @@ O IPv4 é dividido nas seguintes classes:
 * **Classe D**: Usada para multicast (224.0.0.0 a 239.255.255.255).
 * **Classe E**: Reservada para testes e pesquisas (240.0.0.0 a 255.255.255.255).
 
-Além disso, o endereço `0.0.0.0` é endereço especial e significa significa "todo mundo pode acessar". E o endereço `127.0.0.0` ou (`localhost`) é reservado para loopback, ou seja, significa o "este computador".
+Além disso, o endereço `0.0.0.0` é endereço especial e significa significa "todo mundo pode acessar". E o endereço `127.0.0.1` ou (`localhost`) é reservado para loopback, ou seja, significa o "este computador".
 
 **O que são Portas?**
 
@@ -298,19 +298,19 @@ Quando dois computadores se comunicam, um endereço IP indica "quem" é o comput
 
 Portas comuns:
 
-| Porta   | Uso comum                                                       |
-| ------- | --------------------------------------------------------------- |
-| 20, 21  | FTP - transferência de arquivos                                 |
-| 22      | SSH - acesso remoto seguro e gerenciamento                      |
-| 80      | HTTP - páginas web não criptografados                           |
-| 110     | POP3 - recebimento de e-mail                                    |
-| 143     | IMAP - acesso a e-mail                                          |
-| 443     | HTTPS - páginas web seguras com criptografia                    |
-| 3306    | MySQL - Banco de dados                                          |
-| 5432    |	PostgreSQL - Banco de dados                                     |
-| 8000    | HTTP alternativa - usado em servidores de desenvolvimento       |
-| 8008    | HTTP Alternativa - usado em servidores de desenvolvimento       |
-| 8080    | HTTP Alternativa - usado em servidores de desenvolvimento       |
+| Porta   | Protocolo        | Uso comum                                    |
+| ------- | ---------------- | -------------------------------------------- |
+| 20, 21  | FTP              | Transferência de arquivos                    |
+| 22      | SSH              | Acesso remoto seguro e gerenciamento         |
+| 80      | HTTP             | Páginas web não criptografados               |
+| 110     | POP3             | Recebimento de e-mail                        |
+| 143     | IMAP             | Acesso a e-mail                              |
+| 443     | HTTPS            | Páginas web seguras com criptografia         |
+| 3306    | MySQL            | Banco de dados                               |
+| 5432    |	PostgreSQL       | Banco de dados                               |
+| 8000    | HTTP alternativa | Usado em servidores de desenvolvimento       |
+| 8008    | HTTP Alternativa | Usado em servidores de desenvolvimento       |
+| 8080    | HTTP Alternativa | Usado em servidores de desenvolvimento       |
 
 Para mais informações, consulte o [link](https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP).
 
@@ -468,7 +468,7 @@ Servidores web são sistemas dedicados para atender requisições de clientes (c
     * Comumente utilizado para hospedar aplicações web baseadas em Java Server Pages (JSP) e servlets.
 * **Uvicorn:**
     * Servidor ASGI de alto desempenho para aplicações assíncronas em Python.
-    * Ele é ideal para ambientes que requerem escalabilidade e alta desempenho.
+    * Ele é ideal para ambientes que requerem escalabilidade e alto desempenho.
 * **Gunicorn:**
     * Servidor WSGI confiável e robusto para aplicações Python síncronas.
     * Amplamente utilizado em produção, especialmente com frameworks como Django e Flask.
@@ -675,19 +675,19 @@ Analise o código do Cliente (UDP) mostrado a seguir.
 ```python
 # udp-client.py
 
-import socket                                              # Importa o módulo socket
+import socket
 
-HOST = "127.0.0.1"                                         # O endereço IP do servidor ou nome (host) do servidor
-PORT = 65433                                               # A porta usada pelo servidor
+HOST = "127.0.0.1"
+PORT = 65433
 
-with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as cliente: # Cria um socket UDP/IP
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as cliente:
     protocolo = "Cliente>Requisicao: "
-    expressao = "(4+3)*3"                          # Expressão matemática a ser enviada para o servidor
-    pergunta = protocolo + str(expressao)                  # Mensagem com a pergunta    
-    cliente.sendto(pergunta.encode("utf-8"), (HOST, PORT)) # Envia os bytes da mensagem da requisição
-    resposta, _ = cliente.recvfrom(1024)                   # Recebe os dados do servidor
-    print("Pergunta: ", pergunta)                          # Imprime a mensagem da pergunta
-    print("Resposta: ", resposta.decode("utf-8"))          # Imprime a mensagem recebida pelo servidor
+    expressao = "(4+3)*3"
+    pergunta = protocolo + str(expressao)
+    cliente.sendto(pergunta.encode("utf-8"), (HOST, PORT))
+    resposta, _ = cliente.recvfrom(1024)
+    print("Pergunta: ", pergunta)
+    print("Resposta: ", resposta.decode("utf-8"))
 
 print("Conexão Fechada")
 ```
@@ -769,7 +769,7 @@ Execute o código abaixo para iniciar um servidor web personalizado. Para criar 
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-HOST = "0.0.0.0"
+HOST = "localhost"
 PORT = 8080
 
 class MyServer(BaseHTTPRequestHandler):
@@ -826,18 +826,26 @@ Com os conhecimentos adquiridos sobre comunicação via socket em Python desenvo
 * Generalize o servidor web com sockets (código `tcp-server.py`) para receber multiplas requisições de multiplos clientes.
 * Desenvolva um chat usando socket.
 
-## Créditos e Referências
+## Referências e Materiais de Apoio
 
 <a href="#índice"><img align="right" width="15" height="15" src="./docs/up-arrow.png" alt="Voltar para topo"></a>
 
-Este tutorial utilizou parte dos seguintes materiais:
+Para a elaboração deste tutorial, foram consultados os seguintes materiais:
 
-* [Ex2 - Web 1.0, Web 2.0 e Web 3.0. Enfim, o que é isso?](https://ex2.com.br/blog/web-1-0-web-2-0-e-web-3-0-enfim-o-que-e-isso)
-* [Evolution of The Web](http://ahmadfaizar.blogspot.com/2018/08/evolution-of-web-web-10-web-20-web-30.html)
-* [HTTP messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages)
-* [Modelo OSI e Arquitetura TCP/IP](https://www.estrategiaconcursos.com.br/blog/modelo-osi-arquitetura-tcp-ip/)
-* [Medium - Métodos HTTP: Quais são e qual a funcionalidade deles](https://medium.com/@renejr03/m%C3%A9todos-http-quais-s%C3%A3o-e-qual-a-funcionalidade-deles-491b1cc5d5b4)
-* [Medium - Capítulo 2 : Fundamentos da Arquitetura Web](https://medium.com/@tanstorm/cap%C3%ADtulo-2-fundamentos-da-arquitetura-web-751b82532d6d)
-* [https://pythonbasics.org/webserver/](https://pythonbasics.org/webserver/)
-* [https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP](https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP)
-* [https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)
+* **EX2.** [Web 1.0, Web 2.0 e Web 3.0: enfim, o que é isso?](https://ex2.com.br/blog/web-1-0-web-2-0-e-web-3-0-enfim-o-que-e-isso)
+
+* **FAIZAR, Ahmad.** [Evolution of the Web: Web 1.0, Web 2.0, Web 3.0](http://ahmadfaizar.blogspot.com/2018/08/evolution-of-web-web-10-web-20-web-30.html)
+
+* **MDN Web Docs.** [HTTP messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages)
+
+* **Estratégia Concursos.** [Modelo OSI e Arquitetura TCP/IP](https://www.estrategiaconcursos.com.br/blog/modelo-osi-arquitetura-tcp-ip/)
+
+* **Medium.** [Métodos HTTP: quais são e qual a funcionalidade deles](https://medium.com/@renejr03/m%C3%A9todos-http-quais-s%C3%A3o-e-qual-a-funcionalidade-deles-491b1cc5d5b4)
+
+* **Medium.** [Capítulo 2: Fundamentos da Arquitetura Web](https://medium.com/@tanstorm/cap%C3%ADtulo-2-fundamentos-da-arquitetura-web-751b82532d6d)
+
+* **Python Basics.** [Python Web Server](https://pythonbasics.org/webserver/)
+
+* **Wikipédia.** [Lista de portas dos protocolos TCP e UDP](https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP)
+
+* **MDN Web Docs.** [Códigos de status de respostas HTTP](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status)
